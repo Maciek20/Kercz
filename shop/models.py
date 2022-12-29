@@ -165,3 +165,13 @@ class SubcategoryCategory(models.Model):
     class Meta:
         verbose_name = "SubcategoryCategory"
         verbose_name_plural = "SubcategoryCategories"
+
+class Cart(models.Model):
+    client_id = models.ForeignKey(Client, on_delete=models.CASCADE)
+    product_id = models.ForeignKey(Product, on_delete=models.CASCADE)
+    quantity = models.IntegerField()
+    size = models.ForeignKey(Size, on_delete=models.CASCADE)
+
+    class Meta:
+        verbose_name = "OrderRecord"
+        verbose_name_plural = "OrderRecords"
